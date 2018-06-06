@@ -32,7 +32,7 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     @pet.update(params["pet"])
 
-    if !params["owner_id"].nil?
+    if params["owner_id"].nil?
       @owner = Owner.create(params["owner"])
       @pet.owner = @owner
       @owner.pets << @pet
