@@ -29,6 +29,8 @@ class PetsController < ApplicationController
 
   post '/pets/:id' do
     @pet = Pet.find(params[:id])
+
+    # if params["owner"]["name"].nil?
     @pet.update(params["pet"])
 
     if !params["owner"]["name"].nil?
