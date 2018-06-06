@@ -34,7 +34,6 @@ class PetsController < ApplicationController
     @pet.update(params["pet"])
 
     if !params["owner"]["name"].nil?
-      binding.pry
       @owner = Owner.create(params["owner"])
       @pet.owner = @owner
       @owner.pets << @pet
