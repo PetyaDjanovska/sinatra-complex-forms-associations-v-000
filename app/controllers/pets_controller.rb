@@ -28,7 +28,6 @@ class PetsController < ApplicationController
   end
 
   post '/pets/:id' do
-    binding.pry
     @pet = Pet.find(params[:id])
 
     if !params["owner"]["name"].nil?
