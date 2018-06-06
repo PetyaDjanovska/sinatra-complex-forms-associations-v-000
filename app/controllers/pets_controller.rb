@@ -30,11 +30,9 @@ class PetsController < ApplicationController
   post '/pets/:id' do
         binding.pry
     @pet = Pet.find(params[:id])
-
-    if params["owner"]["name"].nil?
     @pet.update(params["pet"])
 
-    else !params["owner"]["name"].nil?
+  else !params["owner_id"].nil?
       @owner = Owner.create(params["owner"])
       @pet.owner = @owner
       @owner.pets << @pet
